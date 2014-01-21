@@ -1,4 +1,4 @@
-"Amount.Requested","Amount.Funded.By.Investors","Interest.Rate","Loan.Length","Loan.Purpose","Debt.To.Income.Ratio","State","Home.Ownership","Monthly.Income","FICO.Range","Open.CREDIT.Lines","Revolving.CREDIT.Balance","Inquiries.in.the.Last.6.Months","Employment.Length"
+"AmountRequested","AmountFundedByInvestors","InterestRate","LoanLength","LoanPurpose","DebtToIncomeRatio","State","HomeOwnership","MonthlyIncome","FICORange","OpenCREDITLines","RevolvingCREDITBalance","InquiriesintheLast6Months","EmploymentLength"
 "81174",20000,20000,"8.90%","36 months","debt_consolidation","14.90%","SC","MORTGAGE",6541.67,"735-739",14,14272,2,"< 1 year"
 "99592",19200,19200,"12.12%","36 months","debt_consolidation","28.36%","TX","MORTGAGE",4583.33,"715-719",12,11140,1,"2 years"
 "80059",35000,35000,"21.98%","60 months","debt_consolidation","23.81%","CA","MORTGAGE",11500,"690-694",14,21977,1,"2 years"

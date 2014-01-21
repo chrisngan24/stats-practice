@@ -1,8 +1,10 @@
-insertTo <- function(data, strin){
+library('ggplot2')
+# keep data if part of category
+insertIfCat <- function(data, cat){
 	ret <- array()
 	j<-1
 	for (i in data$Loan.Purpose){
-		if (i == strin && !is.null(data$Amount.Requested[j])){
+		if (i == cat && !is.null(data$Amount.Requested[j])){
 			ret <- c(ret, data$Amount.Requested[j])
 		}
 		j<- j +1
@@ -14,12 +16,8 @@ insertTo <- function(data, strin){
 
 raw <- read.table(
 		"./data/loansData.csv",
-		
 		sep=",",
 	)
-
-cred <- insertTo(raw, 'credit_card')
+#cred <- insertIfCat(raw, 'credit_card')
 print("Amount.Requested")
-summary(cred)
-head(cred)
-plot(cred)
+summary(raw)
