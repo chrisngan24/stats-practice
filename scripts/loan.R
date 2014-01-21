@@ -21,3 +21,6 @@ raw <- read.table(
 #cred <- insertIfCat(raw, 'credit_card')
 print("Amount.Requested")
 summary(raw)
+ggplot(raw, aes( x=AmountRequested, fill = State)) + geom_density() 
+ggplot(raw, aes( x=InterestRate, fill = State)) + geom_density() 
+
