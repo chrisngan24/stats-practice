@@ -24,14 +24,33 @@ get.tdm <- function(doc){
     return(TermDocumentMatrix(corpus, control))
 }
 
-spam.path <- "data/easy_ham/"
-#list all files in path
-spam.docs <- dir(spam.path)
-spam.docs <- spam.docs[which(spam.docs!= 'cmds')]
-# apply the function of get.msg for each item in spam.docs
-all.spam <- sapply(spam.docs, function(p) get.msg(paste(spam.path, p, sep='')))
+train.tdm <- function(email.tdm){
+    email.matrix <- as.matrix(email.tdm)
+    email.counts <- rowSums(email.matrix)
+    email.df <- data.frame(cbind(names(email.counts), as.numeric(email.counts)), stringsAsFactors=FALSE)
+    names(email.df) <- c("term", "frequency")
+    email.df$frequency <- as.numeric(email.df$frequency)
+    email.occurence <- sapply(1:nrow(email.matrix),
+        function(i){
+            length(which(email.matrix[i,]>0))/ncol(email.matrix)
+        })
+    email.density <- email.df$frequency/sum(email.df$frequency)
 
+    email.df <- transform(email.df, density = email.density, occurrence=email.occurence)   
+    return(email.df)
+}       
 
+get.training.df <- function(path){
+    #list all files in path
+    email.docs <- dir(path)
+    email.docs <- email.docs[which(email.docs!= 'cmds')]
+    # apply the function of get.msg for each item in email.docs
+    all.email <- sapply(email.docs, function(p) get.msg(paste(path, p, sep='')))
+    email.tdm <- get.tdm(all.email)
+    return(train.tdm(email.tdm)) 
 
-spam.tdm <- get.tdm(all.spam)
+}
+
+ham.df <- get.training.df("data/easy_ham/")
+spam.df <- get.training.df("data/spam_2/")
 
