@@ -1,0 +1,6 @@
+numpy>=1.5.0
+scipy>=0.9.0
+matplotlib>=0
+pandas>=0
+
+enum
