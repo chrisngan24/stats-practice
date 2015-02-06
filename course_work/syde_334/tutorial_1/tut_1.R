@@ -103,11 +103,11 @@ q3 <- function(){
   
   print(c('Estimated sd:', sqrt(mean(var_hat)), ' Given sd:', m_sd))
   
-#  return(c(y_mat, b1_mle_mat))
+  return(c(y_mat, b1_mle_mat))
   
   
 }
 
-#q2()
+q2()
 #list[y_mat, b1_mle_mat] <- q3()
 contains <- q3()
