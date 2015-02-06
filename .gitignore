@@ -3,5 +3,7 @@ chap3-classification/data/spam_2/
 .DS_Store
 *.pyc
 *.swp
+*.RData
+*.Rhistory
 
 ML_For_Hackers
